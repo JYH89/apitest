@@ -1,0 +1,244 @@
+<html><head><title>登录系统</title><meta charset="UTF-8">
+<style type="text/css">
+table{
+	border-collapse: 0px;
+	border-spacing: 0px;
+	vertical-align: inherit;
+	border-color:inherit;
+	line-height: normal;
+	font-weight: normal;
+	font-size: 10.0pt;
+	font-variant: normal;
+	font-style: normal;
+	width:100%; 
+	border: 0pt solid silver;
+}
+.tab{
+	table-layout:fixed;
+	min-width: 1000px;
+	border: 1pt solid silver;
+	border-collapse: 0px;
+	border-spacing: 0px;
+	border-collapse: collapse;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	text-align: left;
+	vertical-align: inherit;
+	border-color:inherit;
+	line-height: normal;
+	font-weight: normal;
+	font-size: 10.0pt;
+	font-variant: normal;
+	font-style: normal; 
+}
+.center{
+	text-align: center;
+}
+.min{
+	min-width:100px;
+}
+.title1{
+	background:navy;
+	text-align: right;
+	color: white;
+}
+th{
+	min-height: 16px;
+	border: 1pt solid silver;
+	min-width: 25px;
+	background: gray;
+	color:white;
+}
+td{
+	border: 1pt solid silver;
+	min-height: 16px;
+}
+</style>
+</head>
+<body>
+<table class="tab"><tr class="title1"><td>HundSun电子商务平台基金开放接口</td></tr></table>
+<table class="tab">
+<tr>
+<td width="190" class="center">接口名称</td>
+<td>登录系统(P003)</td>
+<td width="270">3.0API</td>
+</tr>
+<tr>
+<td class="center">请求地址</td>
+<td>https://IP:port/fundapi/restful/integrate/login</td>
+<td width="270">ILoginAPI</td>
+</tr>
+<tr>
+<td class="center">说         明</td>
+<td colspan="2"></td>
+</tr><tr>
+<td colspan="3" height="40">最后修改时间：2018-02-07 11:43:19</td>
+</tr></table>
+<table class="tab">
+<thead>
+<tr class="center">
+<th width="30">序号</th>
+<th width="60">参数类别</th>
+<th colspan="1" width="160">参数名称</th>
+<th nowrap="nowrap"">中文名称</th>
+<th width="30">类型</th>
+<th width="30">长度</th>
+<th width="30">精度</th>
+<th width="30">非空</th>
+<th width="60">版本</th>
+<th width="100">默认值</th>
+<th style="min-width:300px">备注</th>
+</tr>
+</thead>
+<tr><td class="center">1</td>
+<td rowspan="7" class="center">私有参数</td>
+<td colspan="1" style="background:#E8E8E8">lognumber</td>
+<td style="background:#E8E8E8">证件号码</td>
+<td style="background:#E8E8E8">S</td>
+<td style="background:#E8E8E8">20</td>
+<td style="background:#E8E8E8">0</td>
+<td style="background:#E8E8E8">Y</td>
+<td style="background:#E8E8E8">V1.1.4</td>
+<td style="background:#E8E8E8"></td>
+<td style="background:#E8E8E8">logtype为3时客户编号;为2时:证件号码;为1时:基金账号;N\R类推；logintype为4时代表手机号码</td></tr><tr>
+<td class="center">2</td><td colspan="1" style="background:#E8E8E8">logtype</td>
+<td style="background:#E8E8E8">登陆类型</td>
+<td style="background:#E8E8E8">S</td>
+<td style="background:#E8E8E8">1</td>
+<td style="background:#E8E8E8">0</td>
+<td style="background:#E8E8E8">Y</td>
+<td style="background:#E8E8E8">V1.1.4</td>
+<td style="background:#E8E8E8">2.0</td>
+<td style="background:#E8E8E8">0:交易账号;1:基金账号;2:证件号码;3:客户编号(暂只支持ET模式);N：基金昵称;R:注册用户,S：子账户登陆模式;4:手机号登陆（配合loginnumber代表手机号码）</td></tr><tr>
+<td class="center">3</td><td colspan="1">certificatetype</td>
+<td>证件类型</td>
+<td>S</td>
+<td>1</td>
+<td>0</td>
+<td>N</td>
+<td>V1.0</td>
+<td></td>
+<td>读取字典项返回</td></tr><tr>
+<td class="center">4</td><td colspan="1">custname</td>
+<td>客户姓名</td>
+<td>S</td>
+<td>0</td>
+<td>0</td>
+<td>N</td>
+<td>V1.0</td>
+<td></td>
+<td></td></tr><tr>
+<td class="center">5</td><td colspan="1">password</td>
+<td>密码</td>
+<td>S</td>
+<td>20</td>
+<td>0</td>
+<td>N</td>
+<td>V1.0</td>
+<td></td>
+<td>1.明文密码（默认支持方式）2.支持密文密码登陆（系统参数“API_LOGIN_ENCRYPTPWD”为1)3.fundapi支持无密码登陆时（系统参数“API_LOGIN_NOPWD”为1），可以为空。不支持时，为必填。</td></tr><tr>
+<td class="center">6</td><td colspan="1">systype</td>
+<td>用户级系统模式</td>
+<td>S</td>
+<td>3</td>
+<td>0</td>
+<td>N</td>
+<td>V1.0</td>
+<td></td>
+<td>可以在登录时指定该用户的系统模式，例：系统模式是ETQ，直销交易用户，可以通过该参数指定进行查询登录</td></tr><tr>
+<td class="center">7</td><td colspan="1">comefrom</td>
+<td>交易来源</td>
+<td>S</td>
+<td>0</td>
+<td>0</td>
+<td>N</td>
+<td>V1.1.4</td>
+<td></td>
+<td>养老宝等项目需要传入此字段，防止非此类客户登陆</td></tr><tr>
+</tr><tr><td class="center">8</td>
+<td rowspan="8" class="center">返回结果</td>
+<td colspan="1" style="background:#E8E8E8">code</td>
+<td style="background:#E8E8E8">返回码</td>
+<td style="background:#E8E8E8">S</td>
+<td style="background:#E8E8E8">11</td>
+<td style="background:#E8E8E8">0</td>
+<td style="background:#E8E8E8">Y</td>
+<td style="background:#E8E8E8">V1.0</td>
+<td style="background:#E8E8E8"></td>
+<td style="background:#E8E8E8"><a href='return-code-note.html'>祥见返回码说明</a></td></tr><tr>
+<td class="center">9</td><td colspan="1" style="background:#E8E8E8">message</td>
+<td style="background:#E8E8E8">返回信息</td>
+<td style="background:#E8E8E8">S</td>
+<td style="background:#E8E8E8">0</td>
+<td style="background:#E8E8E8">0</td>
+<td style="background:#E8E8E8">Y</td>
+<td style="background:#E8E8E8">V1.0</td>
+<td style="background:#E8E8E8"></td>
+<td style="background:#E8E8E8"></td></tr><tr>
+<td class="center">10</td><td colspan="1">originalString</td>
+<td>返回角色字符串</td>
+<td>S</td>
+<td>0</td>
+<td>0</td>
+<td>N</td>
+<td>V1.0</td>
+<td></td>
+<td></td></tr><tr>
+<td class="center">11</td><td colspan="1">roleValue</td>
+<td>返回用户角色值</td>
+<td>N</td>
+<td>0</td>
+<td>0</td>
+<td>N</td>
+<td>V1.0</td>
+<td></td>
+<td></td></tr><tr>
+<td class="center">12</td><td colspan="1">sessionkey</td>
+<td>sessionkey，成功时返回</td>
+<td>S</td>
+<td>0</td>
+<td>0</td>
+<td>N</td>
+<td>V1.0</td>
+<td></td>
+<td></td></tr><tr>
+<td class="center">13</td><td colspan="1">modifyPassword</td>
+<td>密码强制修改</td>
+<td>I</td>
+<td>1</td>
+<td>0</td>
+<td>N</td>
+<td>V1.0.1</td>
+<td></td>
+<td>0:不需要修改，1修改交易密码，2修改查询密码，3修改交易和查询密码</td></tr><tr>
+<td class="center">14</td><td colspan="1">emoneyfundflag</td>
+<td>是否开通e通宝</td>
+<td>S</td>
+<td>1</td>
+<td>0</td>
+<td>N</td>
+<td>V1.4.0</td>
+<td></td>
+<td>1开通，其他-未开通</td></tr><tr>
+<td class="center">15</td><td colspan="1">equeryFirstLogin</td>
+<td>是否使用查询密码首次登陆</td>
+<td>S</td>
+<td>1</td>
+<td>0</td>
+<td>N</td>
+<td>V3.2.1</td>
+<td></td>
+<td>1:首次使用查询密码登陆 其他：非首次使用查询密码登陆</td></tr><tr>
+</tr></table><table class="tab"><tr><th>JSON结果示例代码</th></tr><tr><td>{"results":
+ {
+  "code":"ETS-5BP0000",
+  "message":"login success",
+  "sessionkey":"asdfasdfsdaf@laksdjfasd91-asd1lkasdf"
+ }
+}</td></tr></table>
+<table class="tab"><tr><th>XML结果示例代码</th></tr><tr><td>&lt;?xml version="1.0" encoding="utf-8" ?>
+&lt;results>
+   &lt;code>ETS-5BP0000&lt;/code>
+   &lt;message>login success&lt;/message>
+   &lt;sessionkey>asdfasdfsdaf@laksdjfasd91-asd1lkasdf&lt;/sessionkey>
+&lt;/results></td></tr></table><table class="tab"><tr><th>相关业务</th></tr><tr><td><a href='keywordLink263.html'>单客户端登录</a>  <a href='keywordLink314.html'>登录</a>  <a href='keywordLink27.html'>对账单查询</a>  </td></tr></table></body></html>
